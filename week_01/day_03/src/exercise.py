@@ -19,7 +19,8 @@ for num in myList:
  
 # AUFGABE 2) 
 # a) Deklariere eine Liste mit dem Variablennamen myList und Werten von 1 bis 10
-myList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+myList = list(range(1, 11)) # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+myList = [i for i in range(1, 11)]
 # b) Deklariere eine Variable namens summe und weise ihr den Wert 0 zu
 summe = 0
 # c) Programmiere eine Schleife, welche die Liste durchläuft, und addiere die Schleifenvariable in jedem Schleifenschritt auf die summe variable (kumulieren)
@@ -38,6 +39,7 @@ print(myList)
 print(aliasList)
 # g) Erstelle eine echte Kopie der myList in einer neuen Liste namens newList
 newList = myList[:]
+newList = myList.copy()
 print(newList)
 # h) Ersetze in der newList den Wert bei Index 0 durch den Wert 1000
 newList[0] = 100
@@ -53,6 +55,8 @@ print(partialList)
 # AUFGABE 3) 
 # a) Deklariere eine Liste mit dem Variablennamen myList und den Werten: 0, 2, 4, 6, 8, 10
 myList = [0, 2, 4, 6, 8, 10]
+myList = list(range(0, 11, 2))
+myList = [i for i in range(0, 11, 2)]
 # b) Prüfe in jedem Schleifenschritt ob die Schleifenvariable größer als 4 ist. 
 for num in myList:
     # b1) Ist dies der Fall, dann gebe die Schleifenvariable in der Konsole aus. 
@@ -73,7 +77,7 @@ try:
     print("Your age is " + str(caAge))
     
 # f) Bonus: Versuche mit if und else eine Logik zu schreiben, die prüft ob das Alter des Users realistisch ist. Ist das Alter unrealistisch, dann gebe in der Konsole aus "Es ist unrealistisch, dass Du ca." caAge "Jahre alt bist". 
-    if(caAge > 118):
+    if(caAge < 6 or caAge > 118):
         print("Congratulations! You are the oldest person in the world. (At least physically.)")
 # e) Stelle sicher dass der Code nicht crasht, egal was der User eingibt
 except Exception as e:
