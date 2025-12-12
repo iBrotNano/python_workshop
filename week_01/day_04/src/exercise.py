@@ -39,26 +39,31 @@ del cities
 
 # Aufgabe 3:
 # a) Erstelle eine String Liste mit Zahlen von 1 bis 8
-numbers = list(range(1, 9))
+numbers = [str(i) for i in range(1, 9)]
 print(numbers)
 # b) Erstelle eine Kopie dieser Liste und kehre in der selben Codezeile die Reihenfolge der Listeinträge für die neue Liste um.
-numbersCopy= numbers[::-1]
+numbersCopy = numbers[::-1]
 print(numbersCopy)
 # c) Kehre nun die Reihenfolge der neuen Liste noch einmal um, aber benutze diesmal ein anderes Verfahren als in b).
 numbersCopy.reverse()
 print(numbersCopy)
 # d) Gebe innerhalb von einer Codezeile nur die geraden Zahlen der Liste in der Konsole aus, ohne die Liste (Cache) selbst zu manipulieren.
 print(numbers[1::2])
+print([i for i in numbers if int(i) % 2 == 0])
 # e) Gebe innerhalb von einer Codezeile nur die ungeraden Zahlen der Liste in der Konsole aus, ohne die Liste (Cache) selbst zu manipulieren.
 print(numbers[::2])
+print([i for i in numbers if int(i) % 2 != 0])
+print([i for i in numbers if int(i) % 2 == 1])
 # f) Leere die Liste inenrhalb von einer Codezeile
 del numbers[:]
+numbers = []
+
 print(numbers)
 # g) Füge der leeren Liste den Wert 10 und 11 hinzu.
 numbers += [10, 11]
 print(numbers)
 # h) Ersetze den Wert 11 innerhalb von einer Codezeile durch den Wert 101
-#numbers[-1] = 101
+#numbers[1] = 101
 numbers[numbers.index(11)] = 101
 print(numbers)
 # i) Lösche die gesamte Liste aus dem Cache
