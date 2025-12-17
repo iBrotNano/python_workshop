@@ -1,3 +1,5 @@
 examples
 workshop
 temp
+__pycache__
+*.pyc
