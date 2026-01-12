@@ -114,15 +114,33 @@ import copy
 
 deepcopyDict = copy.deepcopy(myDict)
 # n) Erstelle darunter eine neue Schleife über das 'myDict' in dem du ohne ein Tuple entpacken zu müssen sowohl key als auch value in der schleife verfügbar hast
-# o) In der Schleife: Weise jedem key einen neuen wert zu: und zwar eine liste welche die zahlenreihe von 0 bis wert des aktuellen value aus 'myDict' enthält
+for key, value in myDict.items():
+    # o) In der Schleife: Weise jedem key einen neuen wert zu: und zwar eine liste welche die zahlenreihe von 0 bis wert des aktuellen value aus 'myDict' enthält
+    myDict[key] = [i for i in range(0, value + 1)]
 # p) Nach der Schleife: Gebe dir 'pointerDict' und  'shallowDict' und 'deepcopyDict' in der konsole aus und vergleiche die werte
+
+print("pointerDict: ", pointerDict)
+print("shallowDict: ", shallowDict)
+print("deepcopyDict: ", deepcopyDict)
 # q) Darunter: Überschreibe 'shallowDict' mit einer neuen Shallow Copy des aktuellen 'myDict'
+shallowDict = myDict.copy()
 # r) Darunter: Überschreibe 'deepcopyDict' mit einer neuen deepcopy des aktuellen 'myDict'
+deepcopyDict = copy.deepcopy(myDict)
 # s) Darunter: Weise dem ersten key in 'pointerDict' folgenden String Wert zu: "Hallo"
+pointerDict[list(pointerDict.keys())[0]] = "Hallo"
 # t) Darunter: Gebe dir 'pointerDict' und  'shallowDict' und 'deepcopyDict' in der konsole aus und vergleiche die werte
+print("pointerDict: ", pointerDict)
+print("shallowDict: ", shallowDict)
+print("deepcopyDict: ", deepcopyDict)
 # u) Darunter: Schreibe eine Funktion namens: 'write_or_read_file()'
 # v) Die funktion 'write_or_read_file()' soll 3 parameter haben: path, modus, obj
+
+import json
+
+def write_or_read_file(path, modus, obj):
 # w1) In der funktion, prüfe ob modus == "w" und ob obj Truthy ist, wenn ja baue in dem if block eine logik die eine json datei schreibt
+    if modus == "w" and obj:
+        # json.dump()
 # w2) Für den Schreibprozess soll 'path' parameter als filename, der 'modus' parameter als mode und der 'obj' parameter als datei inhalt dienen.
 # x1) Darunter. In der funktion, prüfe ob modus == "r" ist, wenn ja baue in diesem if block eine logik die eine json datei liest
 # x2) Für den Leseprozess soll 'path' parameter als filename, der 'modus' parameter als mode dienen.
