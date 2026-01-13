@@ -53,3 +53,32 @@ def myFunction3():
 myFunction1()
 myFunction2()
 myFunction3()
+
+
+def errordeco(func):
+    def wrap(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(
+                f"ERROR: {func.__name__} => {type(e)}, {e} => args: {args}, kwargs: {kwargs}"
+            )
+            return None
+
+    return wrap
+
+
+@errordeco
+def simple_div(a, b):
+    return a / b
+
+
+result = simple_div(10, 0)
+
+
+@errordeco
+def simple_mul(a, b, c, d=20):
+    return a * b * c * d
+
+
+result = simple_mul(3, 25, 1, None)
